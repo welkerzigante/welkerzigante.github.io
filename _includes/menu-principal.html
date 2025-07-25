@@ -1,0 +1,105 @@
+
+<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light bg-white px-4 py-4">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1010 690" height="60">
+        <style>
+          .st0 { fill: #34D17C; }
+          .st1 { fill: #111016; }
+          body.dark-mode svg .st1 { fill: #ffffff; } /* cor clara no modo escuro */
+          body:not(.dark-mode) svg .st1 { fill: #111016; } /* cor escura no modo claro */
+        </style>
+        <g>
+          <circle class="st0" cx="883.6" cy="561.5" r="123.7"/>
+          <g>
+            <path class="st1" d="M915.3,4.8c-23.2,0-41.3,5.5-54.1,16.5c-12.9,11-23.1,28.1-30.6,51.3l-125,365.2L583.1,73.5
+              c-8.2-23.8-18.5-41.2-31.1-52.2c-12.6-11-29.2-16.5-49.9-16.5c-20.7,0-37.6,5.5-50.8,16.5c-13.2,11-24.2,28.1-32.9,51.3
+              L290.8,437.7L171.9,72.6c-7.5-23.2-17.9-40.3-31.1-51.3c-13.2-11-31.4-16.5-54.6-16.5c-34.5,0-58.5,9.9-72,29.6
+              C0.8,54.2-1,78.2,9.1,106.4l183.5,511c8.1,23.2,19.4,40.3,33.9,51.3c14.4,11,33.2,16.5,56.5,16.5c23.8,0,42.7-5.5,56.5-16.5
+              c13.8-11,25.1-27.8,33.9-50.3l123.6-340.9l121,339.9c8.1,23.2,19.3,40.3,33.4,51.3c10,7.8,22.4,12.8,37.2,15L930.4,5.8
+              C925.6,5.2,920.6,4.8,915.3,4.8z"/>
+            <path class="st1" d="M978.8,34.5c-7.6-11.2-17.8-19.2-30.3-24.1L707.7,685.2c0.2,0,0.4,0,0.5,0c23.2,0,41.9-5.5,56-16.5
+              c14.1-11,25.2-27.8,33.4-50.3L983,106.4C993.7,78.2,992.3,54.2,978.8,34.5z"/>
+          </g>
+        </g>
+      </svg>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+      aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse mobile-fullscreen justify-content-end" id="navbarMenu">
+      <button type="button"
+        class="btn btn-fecha-menu position-absolute top-0 end-0 m-4 d-lg-none"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarMenu"
+        aria-label="Fechar menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+          class="bi bi-x-lg" viewBox="0 0 16 16">
+          <path d="M2.146 2.146a.5.5 0 0 1 .708 0L8 7.293l5.146-5.147a.5.5 0 0 1 
+                  .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 
+                  8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 
+                  8 2.146 2.854a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </button>
+      <ul class="navbar-nav align-items-center mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link fs-5 fw-medium" href="/">Início</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5 fw-medium" href="/projetos">Projetos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5 fw-medium" href="/quem-sou-eu">Quem sou eu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5 fw-medium" href="/contato">Contato</a>
+        </li>
+        <li class="nav-item ms-3 d-flex align-items-center">
+          <button id="darkModeToggle" class="btn btn-outline-secondary d-flex align-items-center gap-2" type="button"
+            aria-label="Alternar modo dark/light" style="border-radius: 9999px; padding: 0.2rem 0.7rem;">
+            <i id="darkModeIcon" class="bi bi-moon" style="font-size: 1.2rem;"></i>
+            <span>Dark</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleBtn = document.getElementById('darkModeToggle');
+    const darkModeIcon = document.getElementById('darkModeIcon');
+    const darkModeText = toggleBtn.querySelector('span:last-child');
+    const body = document.body;
+
+    function setDarkMode(enabled) {
+      if (enabled) {
+        body.classList.add('dark-mode');
+        darkModeIcon.classList.remove('bi-moon');
+        darkModeIcon.classList.add('bi-sun');
+        darkModeText.textContent = 'Light';
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        body.classList.remove('dark-mode');
+        darkModeIcon.classList.remove('bi-sun');
+        darkModeIcon.classList.add('bi-moon');
+        darkModeText.textContent = 'Dark';
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    }
+
+    // Carregar preferência
+    const darkModePref = localStorage.getItem('darkMode');
+    setDarkMode(darkModePref === 'enabled');
+
+    toggleBtn.addEventListener('click', () => {
+      const isDark = body.classList.contains('dark-mode');
+      setDarkMode(!isDark);
+    });
+  });
+</script>

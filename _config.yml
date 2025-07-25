@@ -1,9 +1,7 @@
-title: Meu Site Profissional
-description: Portfólio e serviços
+title: Welker Design — Sites Profissionais com Identidade Visual Forte
+description: Criação de sites modernos, rápidos e responsivos com foco na identidade visual da sua marca. Veja meu portfólio e entre em contato para transformar sua presença online.
 baseurl: "" # se for site raiz, senão "/nomedirepositorio"
 url: "https://welkerzigante.github.io"
-
-theme: minima # ou deixe em branco se for usar layout próprio
 
 plugins:
   - jekyll-feed
