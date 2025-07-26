@@ -1,8 +1,9 @@
-title: Welker Design — Sites Profissionais com Identidade Visual Forte
-description: Criação de sites modernos, rápidos e responsivos com foco na identidade visual da sua marca. Veja meu portfólio e entre em contato para transformar sua presença online.
+title: Welker Zigante Design. Sites Profissionais com Identidade Visual Forte
+description: Criação de sites modernos, rápidos e responsivos. Veja meu portfólio e entre em contato para transformar sua presença online.
 baseurl: "" # se for site raiz, senão "/nomedirepositorio"
 url: "https://welkerzigante.github.io"
 
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
