@@ -1,0 +1,62 @@
+- titulo: Ana Kraemer
+  descricao: Landing page institucional da Dra. Ana Kraemer, cirurgiã plástica renomada.
+  imagem: /assets/img/home/dra-ana.webp
+  link: https://cirurgiaplasticaanakraemer.com.br/
+  categoria: ["Landing Page"]
+  parceria: Inspirô Design
+
+- titulo: DTI Soluções
+  descricao: Landing page institucional da DTI Soluções, empresa voltada para soluções em tecnologia.
+  imagem: /assets/img/home/dti.webp
+  link: https://dtisolucoes.io/
+  categoria: ["Landing Page"]
+  parceria: Nenhuma
+
+- titulo: Forbeci Seguros
+  descricao: Site e blog da Forbeci Seguros, com foco em seguros e consultoria financeira.
+  imagem: /assets/img/home/forbeci.webp
+  link: https://forbeciseguros.com.br/
+  categoria: ["Blog", "Site"]
+  parceria: Inspirô Design
+  
+- titulo: Igreja Batista do Prado
+  descricao: Site institucional da Igreja Batista do Prado, com informações sobre cultos e eventos.
+  imagem: /assets/img/home/igreja-prado.webp
+  link: https://igrejadoprado.org/
+  categoria: ["Site"]
+  parceria: Nenhuma
+
+- titulo: MAP Psicologia
+  descricao: Landing page da MAP Psicologia, com foco em terapia e bem-estar mental.
+  imagem: /assets/img/home/map.webp
+  link: https://marcusandreazza.com/
+  categoria: ["Landing Page"]
+  parceria: Inspirô Design
+
+- titulo: Multiverso de Valor
+  descricao: Consultoria & Gestão para consultórios e clínicas médicas.
+  imagem: /assets/img/home/multiverso-valor.webp
+  link: https://camilabristot.com.br/
+  categoria: ["Blog", "Site"]
+  parceria: Inspirô Design
+
+- titulo: Private Label
+  descricao: A Private Label é uma indústria especializada em pesquisa, desenvolvimento, fabricação e distribuição de produtos médicos de classe de risco I e II.
+  imagem: /assets/img/home/private-label.webp
+  link: https://privatelabel.med.br/
+  categoria: ["Blog", "Site"]
+  parceria: Inspirô Design
+
+- titulo: Rafaela Oliveira
+  descricao: Landing page da Rafaela Oliveira, enfermeira obstetra.
+  imagem: /assets/img/home/rafaela.webp
+  link: https://rafaellaoliveira.com.br/
+  categoria: ["Landing Page"]
+  parceria: Inspirô Design
+
+- titulo: RNA Consultoria
+  descricao: Site e Blog da RNA Consultoria, especializada em consultoria empresarial.
+  imagem: /assets/img/home/rna.webp
+  link: https://rnaconsultoria.com/
+  categoria: ["Blog", "Site"]
+  parceria: Nenhuma

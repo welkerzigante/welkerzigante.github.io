@@ -77,51 +77,40 @@ Com um site bem feito, sua empresa é encontrada com mais facilidade e seus visi
       <div class="col text-center">
         <h2>Meus Projetos</h2>
         <p>Durante minha jornada como webdesigner trabalhei com diversos tipos de projetos, desenvolvendo desde Landing Pages simples até sites e blogs mais robustos, e no meio do caminho conheci pessoas incríveis, com as quais compartilhei trabalhos e desenvolvi excelentes produtos.</p>
+
+        <!-- Botões de filtro -->
+        <div class="btn-group mt-4" role="group">
+          <button class="btn btn-outline-secondary active" data-filter="Site">Site</button>
+          <button class="btn btn-outline-secondary" data-filter="Blog">Blog</button>
+          <button class="btn btn-outline-secondary" data-filter="Landing Page">Landing Page</button>
+        </div>
       </div>
     </div>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 mt-5">
-      <div class="col">
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 mt-5" id="projetos-lista">
+      {% for projeto in site.data.projetos %}
+      <div class="col projeto-item" data-categorias="{{ projeto.categoria | join: ',' }}">
         <div class="projetos__wrapper">
           <div class="projetos__image">
-            <a href="">
-              <img src="https://images.pexels.com/photos/59753/pexels-photo-59753.jpeg" alt="">
+            <a href="{{ projeto.link }}" target="_blank">
+              <img src="{{ projeto.imagem }}" alt="{{ projeto.titulo }}">
             </a>
           </div>
-          <span class="badge projetos__badge">Landing Page</span>
-          <h2 class="projetos__title">Site X e Y</h2>
-          <p class="projetos__description">Lorem ipsum dolor sit amet. Non voluptatibus voluptas et velit vero et quos pariatur! Vel nesciunt impedit qui optio itaque ea recusandae adipisci non corrupti fugiat et molestiae quasi et galisum labore qui obcaecati quis. </p>
-          <span class="projetos__parceria">Feito em parceria com a <a href="">Inspirô Design</a></span>
+          {% for cat in projeto.categoria %}
+            <span class="badge projetos__badge me-1">{{ cat }}</span>
+          {% endfor %}
+          <h2 class="projetos__title">{{ projeto.titulo }}</h2>
+          <p class="projetos__description">{{ projeto.descricao }}</p>
+          {% if projeto.parceria != "Nenhuma" %}
+            <span class="projetos__parceria">Feito em parceria com <a href="https://www.instagram.com/inspirohdesign/" target="_blank">{{ projeto.parceria }}</a></span>
+          {% endif %}
         </div>
       </div>
-      <div class="col">
-        <div class="projetos__wrapper">
-          <div class="projetos__image">
-            <a href="">
-              <img src="https://images.pexels.com/photos/59753/pexels-photo-59753.jpeg" alt="">
-            </a>
-          </div>
-          <span class="badge projetos__badge">Landing Page</span>
-          <h2 class="projetos__title">Site X e Y</h2>
-          <p class="projetos__description">Lorem ipsum dolor sit amet. Non voluptatibus voluptas et velit vero et quos pariatur! Vel nesciunt impedit qui optio itaque ea recusandae adipisci non corrupti fugiat et molestiae quasi et galisum labore qui obcaecati quis. </p>
-          <span class="projetos__parceria">Feito em parceria com a <a href="">Inspirô Design</a></span>
-        </div>
-      </div>
-      <div class="col">
-        <div class="projetos__wrapper">
-          <div class="projetos__image">
-            <a href="">
-              <img src="https://images.pexels.com/photos/59753/pexels-photo-59753.jpeg" alt="">
-            </a>
-          </div>
-          <span class="badge projetos__badge">Landing Page</span>
-          <h2 class="projetos__title">Site X e Y</h2>
-          <p class="projetos__description">Lorem ipsum dolor sit amet. Non voluptatibus voluptas et velit vero et quos pariatur! Vel nesciunt impedit qui optio itaque ea recusandae adipisci non corrupti fugiat et molestiae quasi et galisum labore qui obcaecati quis. </p>
-          <span class="projetos__parceria">Feito em parceria com a <a href="">Inspirô Design</a></span>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </div>
+
 
 <div class="container-fluid">
   <div id="sobre-mim" class="sobre-mim__inner rounded-5 rounded-5">
@@ -221,6 +210,32 @@ Com um site bem feito, sua empresa é encontrada com mais facilidade e seus visi
       const offsetPosition = elementPosition - headerOffset;
 
       smoothScrollTo(offsetPosition, 800); // tempo em ms
+    });
+  });
+</script>
+
+<script>
+  const buttons = document.querySelectorAll('[data-filter]');
+  const items = document.querySelectorAll('.projeto-item');
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const filtroInicial = "Site";
+    items.forEach(item => {
+      const categorias = item.getAttribute('data-categorias').split(',');
+      item.style.display = categorias.includes(filtroInicial) ? 'block' : 'none';
+    });
+  });
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filtro = button.getAttribute('data-filter');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      items.forEach(item => {
+        const categorias = item.getAttribute('data-categorias').split(',');
+        item.style.display = categorias.includes(filtro) ? 'block' : 'none';
+      });
     });
   });
 </script>
